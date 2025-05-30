@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pedido de Sesiones Fotográficas</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .is-invalid {
+      border-color: #dc3545 !important;
+    }
+    .invalid-feedback {
+      display: block;
+    }
+    #info-paquete {
+      margin-top: 10px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="mb-4 text-center">Pedido de Sesión Fotográfica</h1>
+    <form id="pedidoForm" novalidate>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre Completo *</label>
+        <input type="text" class="form-control" id="nombre" required />
+        <div class="invalid-feedback">Por favor ingresa tu nombre completo.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="indicativo" class="form-label">Indicativo del País *</label>
+        <select id="indicativo" class="form-select" required>
+          <option value="">Selecciona un indicativo</option>
+          <option value="+1">+1 (Estados Unidos / Canadá)</option>
+          <option value="+52">+52 (México)</option>
+          <option value="+34">+34 (España)</option>
+          <option value="+44">+44 (Reino Unido)</option>
+          <option value="+54">+54 (Argentina)</option>
+          <option value="+55">+55 (Brasil)</option>
+          <option value="+57">+57 (Colombia)</option>
+          <option value="+58">+58 (Venezuela)</option>
+          <option value="+49">+49 (Alemania)</option>
+          <option value="+39">+39 (Italia)</option>
+          <!-- Puedes añadir más indicativos -->
+        </select>
+        <div class="invalid-feedback">Por favor selecciona un indicativo.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="celular" class="form-label">Número de Celular *</label>
+        <input type="tel" pattern="[0-9]+" class="form-control" id="celular" required />
+        <div class="invalid-feedback">Por favor ingresa un número válido solo con dígitos.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección *</label>
+        <input type="text" class="form-control" id="direccion" required />
+        <div class="invalid-feedback">Por favor ingresa tu dirección.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="paquete" class="form-label">Paquete Fotográfico *</label>
+        <select id="paquete" class="form-select" required>
+          <option value="">Selecciona un paquete</option>
+          <option value="básico" data-info="Sesión de 1 hora, 10 fotos editadas. Precio: $100 USD">Básico</option>
+          <option value="premium" data-info="Sesión de 2 horas, 25 fotos editadas + Álbum digital. Precio: $200 USD">Premium</option>
+          <option value="deluxe" data-info="Sesión de 3 horas, 50 fotos editadas + Álbum físico + Video resumen. Precio: $350 USD">Deluxe</option>
+          <option value="personalizado" data-info="Paquete personalizado según necesidades. Precio a consultar.">Personalizado</option>
+        </select>
+        <div class="invalid-feedback">Por favor selecciona un paquete.</div>
+        <div id="info-paquete" class="text-primary"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha de la sesión *</label>
+        <input type="date" class="form-control" id="fecha" required />
+        <div class="invalid-feedback">Por favor selecciona una fecha.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="hora" class="form-label">Hora de la sesión *</label>
+        <input type="time" class="form-control" id="hora" required />
+        <div class="invalid-feedback">Por favor selecciona una hora.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="observaciones" class="form-label">Observaciones (opcional)</label>
+        <textarea class="form-control" id="observaciones" rows="3"></textarea>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button type="reset" class="btn btn-secondary" id="btnLimpiar">Limpiar campos</button>
+        <button type="submit" class="btn btn-primary" id="btnEnviar" disabled>Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS (popper + bootstrap) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
